@@ -12,7 +12,7 @@ public class nps : MonoBehaviour
     {
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         agent.speed = speed;
-        agent.stoppingDistance = 3;
+        agent.stoppingDistance = 5;
     }
 
     // Update is called once per frame
