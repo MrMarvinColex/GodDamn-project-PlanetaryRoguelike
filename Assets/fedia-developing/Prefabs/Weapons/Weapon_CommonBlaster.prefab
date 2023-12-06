@@ -116,7 +116,7 @@ GameObject:
   - component: {fileID: 8334183996133834272}
   - component: {fileID: 2356669923299424047}
   m_Layer: 0
-  m_Name: Weapon_CommonBluster
+  m_Name: Weapon_CommonBlaster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
