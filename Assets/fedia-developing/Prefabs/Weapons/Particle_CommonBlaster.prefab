@@ -9785,6 +9785,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2612791370280314677}
+  - component: {fileID: 1888449842221068305}
   - component: {fileID: 7214324379030304912}
   - component: {fileID: 360336446975822220}
   m_Layer: 0
@@ -9811,6 +9812,19 @@ Transform:
   - {fileID: 4434841828362317323}
   m_Father: {fileID: 8585168447051118374}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1888449842221068305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5218164832751889364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 200a620e603029952b38c9f2813e0b0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  where: system
 --- !u!198 &7214324379030304912
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -13574,7 +13588,7 @@ ParticleSystem:
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
-    collisionMessages: 0
+    collisionMessages: 1
     collidesWithDynamic: 1
     interiorCollisions: 0
   TriggerModule:
@@ -13584,9 +13598,10 @@ ParticleSystem:
     outside: 0
     enter: 0
     exit: 0
-    colliderQueryMode: 0
+    colliderQueryMode: 1
     radiusScale: 1
-    primitives: []
+    primitives:
+    - {fileID: 0}
   SubModule:
     serializedVersion: 2
     enabled: 1

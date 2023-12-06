@@ -12,7 +12,7 @@ public class Weapon_CommonBlaster : ClassWeapon
     public GameObject aimSphere;
     private Transform aimSphereTransform;
     public ParticleSystem shotParticle;
-    public ParticleSystem shotParticleObj;
+    public GameObject shotParticleObj;
 
     // private Ray gunRay;
     private float shotDistance = 25f;
@@ -20,14 +20,18 @@ public class Weapon_CommonBlaster : ClassWeapon
     private float damage_ = 5f;
     private int magazineSize_ = 31;
     private int bulletLeft_ = 0;
-    public float timeBetweenShots_ = 0.16f;
+    private float timeBetweenShots_ = 0.08f;
     private float timeReload_ = 2f;
 
     private bool isReadyToShoot_ = true;
     private bool isRealoading_ = false;
 
+    // FOR ANIMATION
+    private float timeParticklAnimation_ = 1f;
+
     // FOR DEBUG
     private int counter_ = 0;
+    // public GameObject sphere;
 
     // Start is called before the first frame update
     void Start() {  
@@ -61,17 +65,9 @@ public class Weapon_CommonBlaster : ClassWeapon
     }
 
     public override void Shoot() {
-        if (!isReadyToShoot_) {
-            return ;
+        if (isReadyToShoot_) {
+            StartCoroutine("MakeShot");
         }
-
-        isReadyToShoot_ = false;
-
-        Debug.Log("Make shoot " + counter_++);
-        Instantiate(shotParticleObj, gunPointTransform.position, gunPointTransform.rotation);
-        // shotParticle.Play();
-
-        Invoke("ResetShot", timeBetweenShots_);
     }
     public override void Reload() {
         isRealoading_ = true;
@@ -79,10 +75,19 @@ public class Weapon_CommonBlaster : ClassWeapon
         Invoke("Finish", timeReload_);
     }
 
-    private void ResetShot() {
-        Debug.Log("Reset shoot");
+    private IEnumerator MakeShot() {
+        isReadyToShoot_ = false;
+
+        // Debug.Log("Make shoot " + counter_);
+        GameObject obj = Instantiate(shotParticleObj, gunPointTransform.position, gunPointTransform.rotation);
+        Destroy(obj, 1f);
+
+        // Debug.Log(counter_ + " Ready to wait " + Time.time);
+        yield return new WaitForSeconds(timeBetweenShots_);
+        // Debug.Log(counter_ + " Ready to new shot " + Time.time);
+        // ++counter_;
         isReadyToShoot_ = true;
-    } 
+    }
     private void FinishReload() {
         isRealoading_ = false;
     }
