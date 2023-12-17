@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.AI.Navigation;
 using UnityEngine;
 
 public class Weapon_CommonBlaster : ClassWeapon
@@ -31,6 +32,7 @@ public class Weapon_CommonBlaster : ClassWeapon
 
     // FOR DEBUG
     private int counter_ = 0;
+    public NavMeshSurface nav;
     // public GameObject sphere;
 
     // Start is called before the first frame update
@@ -61,6 +63,9 @@ public class Weapon_CommonBlaster : ClassWeapon
         ///// PERS SECTION /////
         if (Input.GetKey(KeyCode.Q)) {
             Shoot();
+        }
+        if (Input.GetKey(KeyCode.B)) {
+            nav.BuildNavMesh();
         }
     }
 
