@@ -32,7 +32,7 @@ public class Weapon_CommonBlaster : ClassWeapon
 
     // FOR DEBUG
     private int counter_ = 0;
-    public NavMeshSurface nav;
+    // public NavMeshSurface nav;
     // public GameObject sphere;
 
     // Start is called before the first frame update
@@ -64,9 +64,9 @@ public class Weapon_CommonBlaster : ClassWeapon
         if (Input.GetKey(KeyCode.Q)) {
             Shoot();
         }
-        if (Input.GetKey(KeyCode.B)) {
-            nav.BuildNavMesh();
-        }
+        // if (Input.GetKey(KeyCode.B)) {
+        //     nav.BuildNavMesh();
+        // }
     }
 
     public override void Shoot() {
