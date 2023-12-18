@@ -59,6 +59,8 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -153,7 +155,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58628464853e62786bd7ff3d2ea696b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isAimNeeded: 0
   gunPoint: {fileID: 8251485410057906498}
+  aimSphere: {fileID: 8600913227294495858, guid: 938f76e98f83d36f799c226c5947acff, type: 3}
+  shotParticle: {fileID: 0}
+  shotParticleObj: {fileID: 8445504725253693924, guid: 83fabb142a8aeede7ac1acbf9b760eba, type: 3}
 --- !u!1 &7236626263013447106
 GameObject:
   m_ObjectHideFlags: 0
@@ -213,6 +219,8 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -318,6 +326,8 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -423,6 +433,8 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:

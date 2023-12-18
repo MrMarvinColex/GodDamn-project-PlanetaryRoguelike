@@ -5,6 +5,7 @@ using UnityEngine;
 class Weapon 
 {
     public void shoot(int bonus_dmg) { }
+    // Weapon.SetBonusDamage(damage, seconds) {}
 }
 class Player
 {
@@ -63,8 +64,8 @@ public class Character_controller : MonoBehaviour
         _anim = GetComponent<Animator>();
     }
 
-    // обратите внимание что все действия с физикой 
-    // необходимо обрабатывать в FixedUpdate, а не в Update
+    // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ 
+    // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ FixedUpdate, пїЅ пїЅпїЅ пїЅ Update
     void FixedUpdate()
     {
         /*if (player.get_current_health() > 0)
