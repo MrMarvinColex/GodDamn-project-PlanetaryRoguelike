@@ -14,6 +14,7 @@ public class Nps : MonoBehaviour
 
     private bool to_player = false;
 
+    private static readonly int state_ = Animator.StringToHash("state");
  
     private float speed = 5;
 
@@ -39,7 +40,7 @@ public class Nps : MonoBehaviour
         
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         agent.speed = speed;
-        agent.stoppingDistance = 5;
+        agent.stoppingDistance = 3;
 
         agent.autoBraking = true;
         agent.acceleration = 50;
@@ -53,14 +54,7 @@ public class Nps : MonoBehaviour
     void Update()
     {
         float dist = 10000;
-        if(agent.pathPending)
-        {
-            dist = Vector3.Distance(transform.position, target.position);
-        }
-        else
-        {
-            dist = agent.remainingDistance;
-        }
+        dist = Vector3.Distance(transform.position, target.position);
         
         if(dist < 10)
         {
@@ -75,11 +69,13 @@ public class Nps : MonoBehaviour
         }
 
         if(agent.remainingDistance > agent.stoppingDistance)
-            animController.SetInteger("state", 1);
+            animController.SetInteger(state_, 1);
         else if(to_player)
-            animController.SetInteger("state", 2);
+            animController.SetInteger(state_, 2);
         else
-            animController.SetInteger("state", 0);
+            animController.SetInteger(state_, 0);
+
+           // animController.SetInteger("state", 0);
 
     }
 }
