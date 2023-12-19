@@ -12,7 +12,7 @@ public class nps : MonoBehaviour
     public enum MoveState {Idle, Walking}
     public MoveState moveState;
  
-    //public float speed = 5f;
+    private float speed = 5;
 
     private int health = 100;
 
@@ -20,12 +20,17 @@ public class nps : MonoBehaviour
 
     public NavMeshSurface nav_mesh;
     // Start is called before the first frame update
+
+    public void set_nav_mesh(NavMeshSurface new_nav_mesh)
+    {
+        this.nav_mesh = new_nav_mesh;
+    }
     void Start()
     {
         animController = GetComponent<Animator>();
         
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-        agent.speed = 5;
+        agent.speed = speed;
         agent.stoppingDistance = 5;
 
         agent.autoBraking = true;
@@ -49,7 +54,7 @@ public class nps : MonoBehaviour
             dist = agent.remainingDistance;
         }
         
-        if(dist < 10)
+        if(dist < 100)
             agent.destination = target.position;
         else
             agent.destination = start_position;
