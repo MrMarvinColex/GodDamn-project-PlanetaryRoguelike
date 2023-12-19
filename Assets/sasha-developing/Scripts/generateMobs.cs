@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.AI.Navigation;
 
-public class generateMobs : MonoBehaviour
+public class GenerateMobs : MonoBehaviour
 {
     public int n_enemies = 1;
 
@@ -21,11 +21,14 @@ public class generateMobs : MonoBehaviour
         {
             Vector3 pos = new Vector3(transform.position.x + UnityEngine.Random.Range(-delta_pos, delta_pos), transform.position.y, transform.position.z + UnityEngine.Random.Range(-delta_pos, delta_pos));
 
-            Instantiate(enemy, pos, transform.rotation);
+            var obj = Instantiate(enemy, pos, transform.rotation);
 
             //UnityEngine.AI.NavMeshAgent agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
             //agent.target = enemy_target;
-            enemy.set_nav_mesh(nav_mesh_enemy);
+            obj.SendMessage("set_nav_mesh", nav_mesh_enemy);
+            obj.SendMessage("set_target", enemy_target);
+
+            //enemy.SendMessage("set_nav_mesh", nav_mesh_enemy);
         }
     }
 

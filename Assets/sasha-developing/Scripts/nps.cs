@@ -4,7 +4,7 @@ using Unity.AI.Navigation;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class nps : MonoBehaviour
+public class Nps : MonoBehaviour
 {
     public Transform target;
     private UnityEngine.AI.NavMeshAgent agent;
@@ -24,6 +24,11 @@ public class nps : MonoBehaviour
     public void set_nav_mesh(NavMeshSurface new_nav_mesh)
     {
         this.nav_mesh = new_nav_mesh;
+    }
+
+    public void set_target(Transform new_target)
+    {
+        this.target = new_target;
     }
     void Start()
     {
@@ -55,9 +60,19 @@ public class nps : MonoBehaviour
         }
         
         if(dist < 100)
+        {
             agent.destination = target.position;
+        }
+            
         else
+        {
             agent.destination = start_position;
+        }
+
+        if(agent.remainingDistance <= agent.stoppingDistance)
+            animController.SetBool("is_walk", false);
+        else
+            animController.SetBool("is_walk", true);
 
     }
 }
