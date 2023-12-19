@@ -12,7 +12,7 @@ public class MapGenerator : MonoBehaviour
 
     public class Chunk {
         private int [,] _map;
-        private List<GameObject> _view;
+        private List<GameObject> _view; 
         public Chunk(List<int> _prob_ref, int _max_prob) {
             _map = new int[_ChunkX, _ChunkY];
             _view = new List<GameObject>();
@@ -26,7 +26,7 @@ public class MapGenerator : MonoBehaviour
                     _map[x, y] = id;
                 }
             }
-            int k = 5;
+            int k = 7;
             for (int i = 0; i < _ChunkX; ++i)
             {
                 _map[i, 0] = k - 1;
@@ -37,7 +37,10 @@ public class MapGenerator : MonoBehaviour
                 _map[0, i] = k;
                 _map[_ChunkX - 1, i] = k;
             }
-
+            _map[_ChunkX - 1, 0] = k  + 1; // true
+            _map[_ChunkX - 1, _ChunkY - 1] = k  + 2;
+            _map[0, _ChunkY - 1] = k  + 3;
+            _map[0, 0] = k  + 4;
         }
 
         public void draw(Transform transform, Vector3 pos, List<CellRef> RefObjs) {

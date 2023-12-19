@@ -4,13 +4,16 @@ using Unity.AI.Navigation;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class nps : MonoBehaviour
+public class Nps : MonoBehaviour
 {
     public Transform target;
     private UnityEngine.AI.NavMeshAgent agent;
     private Animator animController;
     public enum MoveState {Idle, Walking}
     public MoveState moveState;
+
+    private bool to_player = false;
+
  
     private float speed = 5;
 
@@ -24,6 +27,11 @@ public class nps : MonoBehaviour
     public void set_nav_mesh(NavMeshSurface new_nav_mesh)
     {
         this.nav_mesh = new_nav_mesh;
+    }
+
+    public void set_target(Transform new_target)
+    {
+        this.target = new_target;
     }
     void Start()
     {
@@ -54,10 +62,24 @@ public class nps : MonoBehaviour
             dist = agent.remainingDistance;
         }
         
-        if(dist < 100)
+        if(dist < 10)
+        {
             agent.destination = target.position;
+            to_player = true;
+        }
+            
         else
+        {
             agent.destination = start_position;
+            to_player = false;
+        }
+
+        if(agent.remainingDistance > agent.stoppingDistance)
+            animController.SetInteger("state", 1);
+        else if(to_player)
+            animController.SetInteger("state", 2);
+        else
+            animController.SetInteger("state", 0);
 
     }
 }
