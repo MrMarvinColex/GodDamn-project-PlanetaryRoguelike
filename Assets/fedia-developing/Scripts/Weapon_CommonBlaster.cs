@@ -8,22 +8,24 @@ public class Weapon_CommonBlaster : ClassWeapon
     public bool isAimNeeded;
 
     // TODO: Another class for Damage values
-    public GameObject gunPoint;
-    private Transform gunPointTransform;
+    // Objects Publics
+    public Transform gunPointTransform;
+    public GameObject shotParticleObj;
+    
     public GameObject aimSphere;
     private Transform aimSphereTransform;
-    public ParticleSystem shotParticle;
-    public GameObject shotParticleObj;
 
-    // private Ray gunRay;
+    // Configuration Privates
     private float shotDistance = 25f;
-
     private float damage_ = 5f;
+    
     private int magazineSize_ = 31;
     private int bulletLeft_ = 0;
+
     private float timeBetweenShots_ = 0.08f;
     private float timeReload_ = 2f;
 
+    // Logic Privates
     private bool isReadyToShoot_ = true;
     private bool isRealoading_ = false;
 
@@ -32,13 +34,13 @@ public class Weapon_CommonBlaster : ClassWeapon
 
     // FOR DEBUG
     private int counter_ = 0;
-    public NavMeshSurface nav;
+    // public NavMeshSurface nav;
     // public GameObject sphere;
 
     // Start is called before the first frame update
     void Start() {  
         bulletLeft_ = magazineSize_;
-        gunPointTransform = gunPoint.GetComponent<Transform>();
+        // gunPointTransform = gunPoint.GetComponent<Transform>();
         aimSphereTransform = aimSphere.GetComponent<Transform>();
     }
 
@@ -61,12 +63,12 @@ public class Weapon_CommonBlaster : ClassWeapon
 
 
         ///// PERS SECTION /////
-        if (Input.GetKey(KeyCode.Q)) {
-            Shoot();
-        }
-        if (Input.GetKey(KeyCode.B)) {
-            nav.BuildNavMesh();
-        }
+        // if (Input.GetKey(KeyCode.Mouse0)) {
+        //     Shoot();
+        // }
+        // if (Input.GetKey(KeyCode.B)) {
+        //     nav.BuildNavMesh();
+        // }
     }
 
     public override void Shoot() {
