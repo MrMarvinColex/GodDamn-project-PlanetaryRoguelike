@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1084600311637831479
+--- !u!1 &5627206324257340708
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,43 +8,43 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7725684002804569828}
-  - component: {fileID: 8055828388548955429}
+  - component: {fileID: 7925351629683335660}
+  - component: {fileID: 8062302303262884991}
   m_Layer: 0
-  m_Name: tree
+  m_Name: mountain_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7725684002804569828
+--- !u!4 &7925351629683335660
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1084600311637831479}
+  m_GameObject: {fileID: 5627206324257340708}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 9.019684, y: 2.499999, z: -7.3212166}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8055828388548955429
+--- !u!114 &8062302303262884991
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1084600311637831479}
+  m_GameObject: {fileID: 5627206324257340708}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 729edff150c0d5146b7c7e53168f3c52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spwfr: 2
+  spwfr: 0
   sizeRect: 0.8
   shift: {x: 0, y: 0, z: 0}
-  gameObjectj: {fileID: 2633340342210334665, guid: c4a1c47368a8d9446aa32d1807ca23d4, type: 3}
+  gameObjectj: {fileID: 1533081492223523077, guid: a60dee111552b434f9917e3139cddb35, type: 3}
