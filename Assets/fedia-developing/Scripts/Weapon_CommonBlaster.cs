@@ -8,6 +8,7 @@ public class Weapon_CommonBlaster : ClassWeapon
     public bool isAimNeeded;
 
     // TODO: Another class for Damage values
+    // Objects Publics
     public GameObject gunPoint;
     private Transform gunPointTransform;
     public GameObject aimSphere;
@@ -15,15 +16,17 @@ public class Weapon_CommonBlaster : ClassWeapon
     public ParticleSystem shotParticle;
     public GameObject shotParticleObj;
 
-    // private Ray gunRay;
+    // Configuration Privates
     private float shotDistance = 25f;
-
     private float damage_ = 5f;
+    
     private int magazineSize_ = 31;
     private int bulletLeft_ = 0;
+
     private float timeBetweenShots_ = 0.08f;
     private float timeReload_ = 2f;
 
+    // Logic Privates
     private bool isReadyToShoot_ = true;
     private bool isRealoading_ = false;
 
@@ -61,9 +64,9 @@ public class Weapon_CommonBlaster : ClassWeapon
 
 
         ///// PERS SECTION /////
-        if (Input.GetKey(KeyCode.Q)) {
-            Shoot();
-        }
+        // if (Input.GetKey(KeyCode.Mouse0)) {
+        //     Shoot();
+        // }
         // if (Input.GetKey(KeyCode.B)) {
         //     nav.BuildNavMesh();
         // }

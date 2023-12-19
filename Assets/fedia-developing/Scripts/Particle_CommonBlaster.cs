@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class Particle_CommonBlaster : MonoBehaviour
 {
+    // Logic Privates
     private bool alreadyTouched_ = false;
+
+    // General Privates
+    private string targetTag_ = "Enemy";
 
     void OnParticleCollision(GameObject other)
     {
@@ -14,7 +18,7 @@ public class Particle_CommonBlaster : MonoBehaviour
         }
 
         alreadyTouched_ = true;
-        if (other.tag == "Enemy") {
+        if (other.CompareTag(targetTag_)) {
             other.GetComponent<Enemy_DecreaseHealth>().DecreaseHealth();
         }
     }

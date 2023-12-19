@@ -1455,6 +1455,7 @@ GameObject:
   - component: {fileID: 1017282069}
   - component: {fileID: 1017282068}
   - component: {fileID: 1017282067}
+  - component: {fileID: 1017282070}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: Untagged
@@ -1536,6 +1537,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1017282070
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1017282066}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: aaea94156cff91773a4718e7c4867945, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &1034829634 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8334183996133834272, guid: 490e11c52f9f8fbb2bf722fb07cc1cb1, type: 3}
@@ -1946,7 +1969,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4432319045769583447, guid: 5a99f2aa77c9ddbf792e2ad13a5c6f1d, type: 3}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4432319045769583447, guid: 5a99f2aa77c9ddbf792e2ad13a5c6f1d, type: 3}
       propertyPath: m_ProvidesContacts
@@ -1955,6 +1978,10 @@ PrefabInstance:
     - target: {fileID: 7059633577974957748, guid: 5a99f2aa77c9ddbf792e2ad13a5c6f1d, type: 3}
       propertyPath: m_Name
       value: Weapon_CommonSword
+      objectReference: {fileID: 0}
+    - target: {fileID: 7696129968835742944, guid: 5a99f2aa77c9ddbf792e2ad13a5c6f1d, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
