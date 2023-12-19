@@ -156,9 +156,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isAimNeeded: 0
-  gunPoint: {fileID: 8251485410057906498}
+  gunPointTransform: {fileID: 3098179233608702462}
   aimSphere: {fileID: 8600913227294495858, guid: 938f76e98f83d36f799c226c5947acff, type: 3}
-  shotParticle: {fileID: 0}
   shotParticleObj: {fileID: 8445504725253693924, guid: 83fabb142a8aeede7ac1acbf9b760eba, type: 3}
 --- !u!1 &7236626263013447106
 GameObject:

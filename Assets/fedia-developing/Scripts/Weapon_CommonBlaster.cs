@@ -9,12 +9,11 @@ public class Weapon_CommonBlaster : ClassWeapon
 
     // TODO: Another class for Damage values
     // Objects Publics
-    public GameObject gunPoint;
-    private Transform gunPointTransform;
+    public Transform gunPointTransform;
+    public GameObject shotParticleObj;
+    
     public GameObject aimSphere;
     private Transform aimSphereTransform;
-    public ParticleSystem shotParticle;
-    public GameObject shotParticleObj;
 
     // Configuration Privates
     private float shotDistance = 25f;
@@ -41,7 +40,7 @@ public class Weapon_CommonBlaster : ClassWeapon
     // Start is called before the first frame update
     void Start() {  
         bulletLeft_ = magazineSize_;
-        gunPointTransform = gunPoint.GetComponent<Transform>();
+        // gunPointTransform = gunPoint.GetComponent<Transform>();
         aimSphereTransform = aimSphere.GetComponent<Transform>();
     }
 

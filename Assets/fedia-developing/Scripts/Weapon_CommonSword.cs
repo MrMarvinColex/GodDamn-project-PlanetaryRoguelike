@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class Weapon_CommonSword : ClassWeapon
@@ -8,6 +9,10 @@ public class Weapon_CommonSword : ClassWeapon
     // To collect touched GameObjects
     private List<GameObject> touchedObjects_;
     private List<GameObject> decreasedHealth_;
+
+    // Objects Publics
+    public Transform particlePosition;
+    public GameObject shotParticleObj;
 
     // Configuration Privates
     private float damage_ = 27f;
@@ -58,6 +63,7 @@ public class Weapon_CommonSword : ClassWeapon
         touchedObjects_.Add(obj);
 	}
     private void OnTriggerExit (Collider col) {
+        var t = col.GetComponent<Transform>();
         Debug.Log("Exit Collider with" + col.gameObject.name);
         var obj = col.gameObject;
         if (!isShooting_ || decreasedHealth_.Contains(obj)) {
@@ -69,6 +75,9 @@ public class Weapon_CommonSword : ClassWeapon
         if (obj.CompareTag(targetTag_)) {
             Debug.Log("Try to delete Obj");
             obj.GetComponent<Enemy_DecreaseHealth>().DecreaseHealth();
+
+            GameObject particle = Instantiate(shotParticleObj, particlePosition.position, particlePosition.rotation);
+            Destroy(particle, 1f);
         }
 	}
 
