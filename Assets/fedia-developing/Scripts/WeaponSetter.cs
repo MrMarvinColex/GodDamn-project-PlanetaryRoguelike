@@ -18,14 +18,24 @@ public class WeaponSetter : MonoBehaviour
         SetWeapon(start_weapon);
     }
 
-    // void Update() {
-    //     if (Input.GetKey(KeyCode.E)) {
-    //         SetWeapon(0);
-    //     }
-    //     if (Input.GetKey(KeyCode.R)) {
-    //         SetWeapon(1);
-    //     }
-    // }
+    void Update() {
+        if (Input.GetKey(KeyCode.Keypad0)) {
+            SetWeapon(0);
+        }
+        if (Input.GetKey(KeyCode.Keypad1)) {
+            SetWeapon(1);
+        }
+        if (Input.GetKey(KeyCode.Keypad2)) {
+            SetWeapon(2);
+        }
+        if (Input.GetKey(KeyCode.Keypad3)) {
+            SetWeapon(3);
+        }
+
+        if (Input.GetKey(KeyCode.Mouse0)) {
+            current_weapon.SendMessage("Shoot");
+        }
+    }
 
     void SetWeapon(int index) {
         GameObject weapon = weapons[index];
