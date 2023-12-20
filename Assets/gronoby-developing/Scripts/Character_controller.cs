@@ -9,6 +9,10 @@ class Player
     {
         return max_health;
     }
+    public void set_max_health(int new_health)
+    {
+        max_health = new_health;
+    }
     int current_health = 100;
     public void set_current_health(int health)
     {
