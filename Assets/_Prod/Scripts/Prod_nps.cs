@@ -48,6 +48,7 @@ public class Prod_Nps : MonoBehaviour
             died_ = true;
             // animController.SetBool(isDied_, true);
             animController.SetInteger(state_, 3);
+            target.gameObject.SendMessage("exp_getting", 7);
             Destroy(this.gameObject, 10f);
         }
 

@@ -45,7 +45,7 @@ public class Weapon_MobFist : ClassWeapon
 
 
     public override void Shoot() {
-        Debug.Log("Set true for Shooting");
+        // Debug.Log("Set true for Shooting");
         if (isReadyToShoot_) {
             StartCoroutine("MakeShot");
         }
@@ -56,7 +56,7 @@ public class Weapon_MobFist : ClassWeapon
 
 
     private void OnTriggerEnter (Collider col) {
-        Debug.Log("Enter Collider with" + col.gameObject.name);
+        // Debug.Log("Enter Collider with" + col.gameObject.name);
         var obj = col.gameObject;
         if (!isShooting_ || touchedObjects_.Contains(obj)) {
             return ;
@@ -68,17 +68,17 @@ public class Weapon_MobFist : ClassWeapon
 	}
     private void OnTriggerExit (Collider col) {
         var t = col.GetComponent<Transform>();
-        Debug.Log("Exit Collider with" + col.gameObject.name);
+        // Debug.Log("Exit Collider with" + col.gameObject.name);
         var obj = col.gameObject;
         if (!isShooting_ || decreasedHealth_.Contains(obj)) {
             return ;
         }
 
-        Debug.Log("Push in decreased list");
+        // Debug.Log(obj.tag);
         decreasedHealth_.Add(obj);
         if (obj.CompareTag(targetTag_)) {
-            Debug.Log("Try to delete Obj");
-            obj.SendMessage("DecreaseHealth", damage_);
+            // Debug.Log("Try to delete Obj");
+            obj.BroadcastMessage("get_dmg", damage_);
 
             GameObject particle = Instantiate(shotParticleObj, particlePosition.position, particlePosition.rotation);
             Destroy(particle, 1f);
@@ -99,7 +99,7 @@ public class Weapon_MobFist : ClassWeapon
     private void FinishShot() {
         foreach (var obj in touchedObjects_) {
             if (!decreasedHealth_.Contains(obj) && obj.CompareTag(targetTag_)) {
-                obj.SendMessage("DecreaseHealth", damage_);
+                obj.BroadcastMessage("get_dmg", damage_);
             }
         }
 
