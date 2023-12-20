@@ -226,6 +226,7 @@ GameObject:
   - component: {fileID: 6121711424024179763}
   - component: {fileID: 4432319045769583447}
   - component: {fileID: 7696129968835742944}
+  - component: {fileID: 1305071131166595887}
   m_Layer: 0
   m_Name: Weapon_CommonSword
   m_TagString: Untagged
@@ -313,6 +314,28 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!95 &1305071131166595887
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7059633577974957748}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &3673857088919078531
 PrefabInstance:
   m_ObjectHideFlags: 0

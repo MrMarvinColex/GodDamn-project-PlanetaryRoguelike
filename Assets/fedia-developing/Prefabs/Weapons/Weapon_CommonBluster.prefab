@@ -116,7 +116,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8334183996133834272}
-  - component: {fileID: 2356669923299424047}
+  - component: {fileID: 3666810695122255019}
   m_Layer: 0
   m_Name: Weapon_CommonBluster
   m_TagString: Untagged
@@ -144,7 +144,7 @@ Transform:
   - {fileID: 427584828709347689}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2356669923299424047
+--- !u!114 &3666810695122255019
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -159,7 +159,12 @@ MonoBehaviour:
   isAimNeeded: 0
   gunPointTransform: {fileID: 3098179233608702462}
   shotParticleObj: {fileID: 8445504725253693924, guid: 83fabb142a8aeede7ac1acbf9b760eba, type: 3}
-  aimSphere: {fileID: 8600913227294495858, guid: 938f76e98f83d36f799c226c5947acff, type: 3}
+  aimSphere: {fileID: 0}
+  damage_: 5
+  magazineSize_: 31
+  bulletLeft_: 0
+  timeBetweenShots_: 0.08
+  timeReload_: 2
 --- !u!1 &7236626263013447106
 GameObject:
   m_ObjectHideFlags: 0
