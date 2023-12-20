@@ -17,5 +17,13 @@ public class Camera_controller : MonoBehaviour
             ref currentVelocity,
             smoothTime
             );
+        /*if (Input.GetKey(KeyCode.E))
+        {
+            transform.RotateAround(target.transform.position, Vector3.up, 20 * Time.deltaTime);
+        }
+        if (Input.GetKey(KeyCode.Q))
+        {
+            transform.RotateAround(target.transform.position, Vector3.up, -20 * Time.deltaTime);
+        }*/
     }
 }
