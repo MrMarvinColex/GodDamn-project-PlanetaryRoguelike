@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using System.Threading;
 
 class Player
 {
@@ -90,8 +92,17 @@ public class Character_controller : MonoBehaviour
     private bool touching_crystall = false;
     GameObject crystall = null;
 
+    public TMP_Text NCristalsText;
+
+    public TMP_Text HPText;
+
+    public TMP_Text TimerText;
+
+    private float timer = 120f;
+
     void Start()
     {
+        TimerText.text = "Rest time: " + timer.ToString();
         Speed = player.get_movespeed();
         _rb = GetComponent<Rigidbody>();
         _anim = GetComponent<Animator>();
@@ -106,6 +117,7 @@ public class Character_controller : MonoBehaviour
         }
         DamageLogic();
         CrystallLogic();
+        UILogic();
     }
 
     private void MovementLogic()
@@ -167,6 +179,19 @@ public class Character_controller : MonoBehaviour
         }
     }
 
+    void UILogic()
+    {
+        timer -= Time.deltaTime;
+        if (crystall_found())
+            NCristalsText.text = "Amount cristals: 1";
+        else
+            NCristalsText.text = "Amount cristals: 0";
+
+        HPText.text = "Health: " + get_current_health().ToString();
+
+        TimerText.text = "Rest time: " + Mathf.Round(timer).ToString();
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.CompareTag("Crystall"))
@@ -174,6 +199,7 @@ public class Character_controller : MonoBehaviour
             touching_crystall = true;
             crystall = collision.gameObject;
         }
+
     }
     private void OnCollisionExit(Collision collision)
     {
@@ -186,7 +212,7 @@ public class Character_controller : MonoBehaviour
     }
     public void set_max_health(int new_health)
     {
-        player.set_max_health(new_health)
+        player.set_max_health(new_health);
     }
     public void set_current_health(int health)
     {
@@ -206,27 +232,27 @@ public class Character_controller : MonoBehaviour
     }
     public int get_exp_income()
     {
-        player.get_exp_income();
+        return player.get_exp_income();
     }
     public int get_max_health()
     {
-        player.get_max_health();
+        return player.get_max_health();
     }
     public int get_current_health()
     {
-        player.get_current_health();
+        return player.get_current_health();
     }
     public float get_movespeed()
     {
-        player.get_movespeed();
+        return player.get_movespeed();
     }
     public int get_bonus_dmg()
     {
-        player.get_bonus_dmg();
+        return player.get_bonus_dmg();
     }
     public int get_armor()
     {
-        player.get_armor();
+        return player.get_armor();
     }
     public void exp_getting(int exp)
     {
@@ -234,7 +260,7 @@ public class Character_controller : MonoBehaviour
     }
     public bool crystall_found()
     {
-        player.crystall_found();
+        return player.crystall_found();
     }
     public void set_crystall_found(bool found_crystall)
     {
