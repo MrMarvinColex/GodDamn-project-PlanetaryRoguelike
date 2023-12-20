@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class OverMouseLabButton : MonoBehaviour
 {
-    private float rotateSpeed = 30f;
+    private float rotateSpeed = 50f;
     private Vector3 rotateDirection = new Vector3(0f, 1f, 0f);
     private Vector3 defaultRotation = new Vector3(0f, 0f, 0f);
 

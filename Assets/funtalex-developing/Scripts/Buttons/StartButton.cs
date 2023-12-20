@@ -6,18 +6,26 @@ using UnityEngine.SceneManagement;
 
 public class StartButton : MonoBehaviour
 {
+    public GameObject player;
+    public GameObject weapon;
+    private int maxHealth = 100;
+    private float speed = 10f;
+    private int damage = 0;
     private void OnMouseUpAsButton() {
         Debug.Log("Start Game\n");
-        // Set variables from SaveGame.item to player and weapons:
-
-        //Player.Set(SaveGame.item.armor, SaveGame.item.speedBoost, SaveGame.item.dodgeChance, SaveGame.item.criticalChance,
-        //SaveGame.item.healthRecovery, SaveGame.item.crystals, SaveGame.item.xp);
-
-        //Weapon.Set(SaveGame.item.guns)
-
-        //Weapon.Enable(SaveGame.item.enabled_gun)
         
+        // SetEssentials();
+
         SceneManager.LoadScene("Main1");
+    }
+
+    private void SetEssentials()
+    {
+        player.SendMessage("set_max_health", maxHealth + SaveGame.item.armor);
+        player.SendMessage("set_current_health", maxHealth + SaveGame.item.armor);
+        player.SendMessage("set_movespeed", speed * SaveGame.item.speedBoost);
+
+        player.SendMessage("SetWeapon", SaveGame.item.enabled_gun);
     }
 
 }
