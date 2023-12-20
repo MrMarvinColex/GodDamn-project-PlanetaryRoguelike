@@ -68,14 +68,14 @@ public class Character_controller : MonoBehaviour
     // ���������� ������������ � FixedUpdate, � �� � Update
     void FixedUpdate()
     {
-        /*if (player.get_current_health() > 0)
+        if (player.get_current_health() > 0)
         {
             MovementLogic();
             LookingLogic();
-        }*/
-        //DamageLogic();
-        MovementLogic();
-        LookingLogic();
+        }
+        DamageLogic();
+        // MovementLogic();
+        // LookingLogic();
     }
 
     private void MovementLogic()
