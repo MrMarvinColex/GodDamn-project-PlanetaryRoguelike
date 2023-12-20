@@ -4,5 +4,12 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/funtalex-developing/Main0.unity
+    guid: 3fb00d450bcc2c5dbb3267f7a2784b66
+  - enabled: 1
+    path: Assets/Scenes/_Prod_Scenes/Main1.unity
+    guid: a435bb73ea0ef26b890ffe64a5505ef5
   m_configObjects: {}
+  m_UseUCBPForAssetBundles: 0

@@ -6,7 +6,7 @@ using System.IO;
 public class SaveGame : MonoBehaviour
 {
     public static Item item;
-    private string jsonPath = Application.dataPath + "/SaveJson/data.json";
+    private string jsonPath = Application.dataPath + "/funtalex-developing/SaveJson/data.json";
 
     private void OnMouseUpAsButton()
     {
