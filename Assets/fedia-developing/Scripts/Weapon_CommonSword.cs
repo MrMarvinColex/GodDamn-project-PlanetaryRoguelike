@@ -74,7 +74,7 @@ public class Weapon_CommonSword : ClassWeapon
         decreasedHealth_.Add(obj);
         if (obj.CompareTag(targetTag_)) {
             Debug.Log("Try to delete Obj");
-            obj.GetComponent<Enemy_DecreaseHealth>().DecreaseHealth();
+            // obj.GetComponent<Enemy_DecreaseHealth>().DecreaseHealth();
 
             GameObject particle = Instantiate(shotParticleObj, particlePosition.position, particlePosition.rotation);
             Destroy(particle, 1f);
@@ -95,7 +95,7 @@ public class Weapon_CommonSword : ClassWeapon
     private void FinishShot() {
         foreach (var obj in touchedObjects_) {
             if (!decreasedHealth_.Contains(obj) && obj.CompareTag(targetTag_)) {
-                obj.GetComponent<Enemy_DecreaseHealth>().DecreaseHealth();
+                // obj.GetComponent<Enemy_DecreaseHealth>().DecreaseHealth();
             }
         }
 
