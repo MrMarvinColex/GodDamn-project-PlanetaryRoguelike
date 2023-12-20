@@ -37,7 +37,7 @@ public class MapGenerator : MonoBehaviour
                 _map[0, i] = k;
                 _map[_ChunkX - 1, i] = k;
             }
-            _map[_ChunkX - 1, 0] = k  + 1; // true
+            _map[_ChunkX - 1, 0] = k  + 1; 
             _map[_ChunkX - 1, _ChunkY - 1] = k  + 2;
             _map[0, _ChunkY - 1] = k  + 3;
             _map[0, 0] = k  + 4;
@@ -62,41 +62,29 @@ public class MapGenerator : MonoBehaviour
 
             _map[(_ChunkX - 1)/2,( _ChunkY - 1)/2] = 4; 
         }
+        public void subdraw(Transform transform, Vector3 pos, List<CellRef> RefObjs, int id, int x, int y)
+        {
+            float scale = 1.0f / RefObjs[id].sizeRect;
+            Vector3 local_pos = transform.rotation * (new Vector3(x, 0, y) + pos + RefObjs[id].shift * scale) + transform.position;
+            GameObject body = RefObjs[id].gameObjectj;
+            GameObject newObj = Instantiate(body, local_pos, transform.rotation, transform);
+            newObj.transform.localScale = new Vector3(scale, scale, scale);
+            _view.Add(newObj);
+        }
 
-        public void draw(Transform transform, Vector3 pos, List<CellRef> RefObjs) {
-            for (uint x = 0; x < _ChunkX; ++ x) {
-                for (uint y = 0; y < _ChunkY; ++ y) {
+            public void draw(Transform transform, Vector3 pos, List<CellRef> RefObjs) {
+            for (int x = 0; x < _ChunkX; ++ x) {
+                for (int y = 0; y < _ChunkY; ++ y) {
                     int id = _map[x, y];
-                    float scale = 1.0f / RefObjs[id].sizeRect;
-                    Vector3 local_pos = transform.rotation * (new Vector3(x, 0, y) + pos + RefObjs[id].shift * scale) + transform.position;
-                    GameObject body = RefObjs[id].gameObjectj;
-                    GameObject newObj = Instantiate(body, local_pos, transform.rotation, transform);
-                    newObj.transform.localScale = new Vector3(scale, scale, scale);
-                    _view.Add(newObj);
+                    subdraw(transform, pos, RefObjs, id, x, y);
                 }
             }
             int fid = 12;
-            float fscale = 1.0f / RefObjs[fid].sizeRect;
-            Vector3 flocal_pos = transform.rotation * (new Vector3(fx, 0, fy) + pos + RefObjs[fid].shift * fscale) + transform.position;
-            GameObject fbody = RefObjs[fid].gameObjectj;
-            GameObject fnewObj = Instantiate(fbody, flocal_pos, transform.rotation, transform);
-            fnewObj.transform.localScale = new Vector3(fscale, fscale, fscale);
-            _view.Add(fnewObj);
+            subdraw(transform, pos, RefObjs, fid, fx, fy);
             int sid = 12;
-            float sscale = 1.0f / RefObjs[sid].sizeRect;
-            Vector3 slocal_pos = transform.rotation * (new Vector3(sx, 0, sy) + pos + RefObjs[sid].shift * sscale) + transform.position;
-            GameObject sbody = RefObjs[sid].gameObjectj;
-            GameObject snewObj = Instantiate(sbody, slocal_pos, transform.rotation, transform);
-            snewObj.transform.localScale = new Vector3(sscale, sscale, sscale);
-            _view.Add(snewObj);
-
+            subdraw(transform, pos, RefObjs, sid, sx, sy);
             int mid = 13;
-            float mscale = 1.0f / RefObjs[mid].sizeRect;
-            Vector3 mlocal_pos = transform.rotation * (new Vector3(8, 0, 8) + pos + RefObjs[mid].shift * mscale) + transform.position;
-            GameObject mbody = RefObjs[mid].gameObjectj;
-            GameObject mnewObj = Instantiate(mbody, mlocal_pos, transform.rotation, transform);
-            mnewObj.transform.localScale = new Vector3(mscale, mscale, mscale);
-            _view.Add(mnewObj);
+            subdraw(transform, pos, RefObjs, mid, 8, 8);
         }   
     }
 
