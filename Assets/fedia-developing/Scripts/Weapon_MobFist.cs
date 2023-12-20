@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 
-public class Weapon_CommonSword : ClassWeapon
+public class Weapon_MobFist : ClassWeapon
 {
 
     // To collect touched GameObjects
@@ -13,9 +13,10 @@ public class Weapon_CommonSword : ClassWeapon
     // Objects Publics
     public Transform particlePosition;
     public GameObject shotParticleObj;
+    public MeshRenderer cubeMesh;
 
     // Configuration Privates
-    private float damage_ = 27f;
+    private float damage_ = 7f;
 
     private int magazineSize_ = 0;
     private int bulletLeft_ = 0;
@@ -28,12 +29,13 @@ public class Weapon_CommonSword : ClassWeapon
     private bool isShooting_ = false;
 
     // General Privates
-    private string targetTag_ = "Enemy";
+    private string targetTag_ = "Player";
 
     // Start is called before the first frame update
     void Start() {
         touchedObjects_ = new List<GameObject>();
         decreasedHealth_ = new List<GameObject>();
+        // cubeMesh.enabled = false;
     }
 
     // Update is called once per frame
@@ -60,6 +62,8 @@ public class Weapon_CommonSword : ClassWeapon
             return ;
         }
 
+        GameObject particle = Instantiate(shotParticleObj, particlePosition.position, particlePosition.rotation);
+        Destroy(particle, 1f);
         touchedObjects_.Add(obj);
 	}
     private void OnTriggerExit (Collider col) {

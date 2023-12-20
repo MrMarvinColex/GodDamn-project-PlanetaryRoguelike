@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Particle_CommonBlaster : MonoBehaviour
+public class Particle_CommonBluster : MonoBehaviour
 {
     // Logic Privates
     private bool alreadyTouched_ = false;
 
     // General Privates
     private string targetTag_ = "Enemy";
+    private int damage_ = 1;
 
     void OnParticleCollision(GameObject other)
     {
@@ -19,8 +20,13 @@ public class Particle_CommonBlaster : MonoBehaviour
 
         alreadyTouched_ = true;
         if (other.CompareTag(targetTag_)) {
-            other.GetComponent<Enemy_DecreaseHealth>().DecreaseHealth();
+            Debug.LogWarning("Damage is - " + damage_);
+            other.SendMessage("DecreaseHealth", damage_);
         }
     }
 
+    public void SetDamage (int d) {
+        Debug.LogWarning("Set damage to - " + damage_);
+        damage_ = d;
+    }
 }
