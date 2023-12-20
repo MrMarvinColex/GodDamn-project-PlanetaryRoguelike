@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System.Threading;
+using UnityEngine.SceneManagement;
 
 class Player
 {
@@ -91,6 +92,7 @@ public class Character_controller : MonoBehaviour
     private Rigidbody _rb;
     private bool touching_crystall = false;
     GameObject crystall = null;
+    private bool touching_exit = false;
 
     public TMP_Text NCristalsText;
 
@@ -102,7 +104,6 @@ public class Character_controller : MonoBehaviour
 
     void Start()
     {
-        TimerText.text = "Rest time: " + timer.ToString();
         Speed = player.get_movespeed();
         _rb = GetComponent<Rigidbody>();
         _anim = GetComponent<Animator>();
@@ -117,7 +118,7 @@ public class Character_controller : MonoBehaviour
         }
         DamageLogic();
         CrystallLogic();
-        UILogic();
+        ExitLogic();
     }
 
     private void MovementLogic()
@@ -178,6 +179,13 @@ public class Character_controller : MonoBehaviour
             _anim.SetBool(taking_smth, true);
         }
     }
+    private void ExitLogic()
+    {
+        if (Input.GetKey(KeyCode.F) && touching_exit)
+        {
+            SceneManager.LoadScene("Main0");
+        }
+    }
 
     void UILogic()
     {
@@ -199,6 +207,10 @@ public class Character_controller : MonoBehaviour
             touching_crystall = true;
             crystall = collision.gameObject;
         }
+        if (collision.collider.CompareTag("Exit"))
+        {
+            touching_exit = true;
+        }
 
     }
     private void OnCollisionExit(Collision collision)
@@ -208,6 +220,10 @@ public class Character_controller : MonoBehaviour
             touching_crystall = false;
             crystall = null;
             _anim.SetBool(taking_smth, false);
+        }
+        if (collision.collider.CompareTag("Exit"))
+        {
+            touching_exit = false;
         }
     }
     public void set_max_health(int new_health)

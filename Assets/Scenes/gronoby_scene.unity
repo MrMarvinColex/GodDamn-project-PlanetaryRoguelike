@@ -227,6 +227,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 10
+  NCristalsText: {fileID: 0}
+  HPText: {fileID: 0}
+  TimerText: {fileID: 0}
 --- !u!65 &467317
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -526,7 +529,7 @@ GameObject:
   - component: {fileID: 196998371}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Crystall
+  m_TagString: Exit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

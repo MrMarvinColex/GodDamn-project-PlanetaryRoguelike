@@ -6,6 +6,16 @@ TagManager:
   tags:
   - Enemy
   - Crystall
+  - MagazineSize
+  - Armor
+  - ReloadTime
+  - DodgeChance
+  - ShotTime
+  - Damage
+  - CriticalChance
+  - HealthRecovery
+  - SpeedBoost
+  - Exit
   layers:
   - Default
   - TransparentFX
