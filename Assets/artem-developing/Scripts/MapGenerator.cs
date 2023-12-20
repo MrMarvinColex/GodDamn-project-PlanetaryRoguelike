@@ -43,19 +43,24 @@ public class MapGenerator : MonoBehaviour
             _map[0, 0] = k  + 4;
 
             bool are_far_away = false;
-            while(!are_far_away)
+            while (!are_far_away)
             {
                 fx =  Random.Range(5, _ChunkX - 4);
                 fy =  Random.Range(5, _ChunkY - 4);
                 sx =  Random.Range(5, _ChunkX - 4);
                 sy =  Random.Range(5, _ChunkY - 4);
-                if(fx - sx > _ChunkX / 4 && fy - sy > _ChunkY / 4)
+                if (fx - sx > _ChunkX / 4 && fy - sy > _ChunkY / 4)
                 {
                     are_far_away = true;
+                }
+                if ((fx == 8 && fy == 8) ||(sx == 8 && sy == 8)) {
+                    are_far_away = false;
                 }
             }
             _map[fx, fy] = 4;
             _map[sx, sy] = 4;
+
+            _map[(_ChunkX - 1)/2,( _ChunkY - 1)/2] = 4; 
         }
 
         public void draw(Transform transform, Vector3 pos, List<CellRef> RefObjs) {
@@ -84,6 +89,14 @@ public class MapGenerator : MonoBehaviour
             GameObject snewObj = Instantiate(sbody, slocal_pos, transform.rotation, transform);
             snewObj.transform.localScale = new Vector3(sscale, sscale, sscale);
             _view.Add(snewObj);
+
+            int mid = 13;
+            float mscale = 1.0f / RefObjs[mid].sizeRect;
+            Vector3 mlocal_pos = transform.rotation * (new Vector3(8, 0, 8) + pos + RefObjs[mid].shift * mscale) + transform.position;
+            GameObject mbody = RefObjs[mid].gameObjectj;
+            GameObject mnewObj = Instantiate(mbody, mlocal_pos, transform.rotation, transform);
+            mnewObj.transform.localScale = new Vector3(mscale, mscale, mscale);
+            _view.Add(mnewObj);
         }   
     }
 
