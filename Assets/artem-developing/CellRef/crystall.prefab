@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2637517192831065763
+--- !u!1 &5942128694330653030
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,43 +8,43 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 459052700568266383}
-  - component: {fileID: 5214336762395172678}
+  - component: {fileID: 2983966249778741094}
+  - component: {fileID: 8373811984642733707}
   m_Layer: 0
-  m_Name: tree_2
+  m_Name: crystall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &459052700568266383
+--- !u!4 &2983966249778741094
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2637517192831065763}
+  m_GameObject: {fileID: 5942128694330653030}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.8284006, y: 0.9348856, z: 1.788177}
+  m_LocalPosition: {x: 9.784925, y: 5.7340155, z: 0.192801}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5214336762395172678
+--- !u!114 &8373811984642733707
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2637517192831065763}
+  m_GameObject: {fileID: 5942128694330653030}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 729edff150c0d5146b7c7e53168f3c52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spwfr: 30
-  sizeRect: 0.8
-  shift: {x: 0, y: 0, z: 0}
-  gameObjectj: {fileID: 7754654193820475186, guid: 7230aa52593620e4d8a5f91301ca3613, type: 3}
+  spwfr: 0
+  sizeRect: 1.5
+  shift: {x: 0, y: 2.5, z: 0}
+  gameObjectj: {fileID: 5948982527260546947, guid: 865f189b54204304fbbedd1ba5de252e, type: 3}
