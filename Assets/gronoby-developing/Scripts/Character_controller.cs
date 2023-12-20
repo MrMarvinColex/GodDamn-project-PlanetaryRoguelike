@@ -184,4 +184,65 @@ public class Character_controller : MonoBehaviour
             _anim.SetBool(taking_smth, false);
         }
     }
+    public void set_max_health(int new_health)
+    {
+        player.set_max_health(new_health)
+    }
+    public void set_current_health(int health)
+    {
+        player.set_current_health(health);
+    }
+    public void set_movespeed(float speed)
+    {
+        player.set_movespeed(speed);
+    }
+    public void set_bonus_dmg(int new_bonus_dmg)
+    {
+        player.set_bonus_dmg(new_bonus_dmg);
+    }
+    public void set_armor(int new_armor)
+    {
+        player.set_armor(new_armor);
+    }
+    public int get_exp_income()
+    {
+        player.get_exp_income();
+    }
+    public int get_max_health()
+    {
+        player.get_max_health();
+    }
+    public int get_current_health()
+    {
+        player.get_current_health();
+    }
+    public float get_movespeed()
+    {
+        player.get_movespeed();
+    }
+    public int get_bonus_dmg()
+    {
+        player.get_bonus_dmg();
+    }
+    public int get_armor()
+    {
+        player.get_armor();
+    }
+    public void exp_getting(int exp)
+    {
+        player.exp_getting(exp);
+    }
+    public bool crystall_found()
+    {
+        player.crystall_found();
+    }
+    public void set_crystall_found(bool found_crystall)
+    {
+        player.set_crystall_found(found_crystall);
+    }
+
+    public void get_dmg(int dmg)
+    {
+        player.get_dmg(dmg);
+    }
 }
